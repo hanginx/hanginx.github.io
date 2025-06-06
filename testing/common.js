@@ -12,19 +12,15 @@ function getData(q){
         })
         .then(fileContent => {
             console.log(fileContent); // Use the file content
-            return fileContent;
+            document.getElementById('content').innerHTML = fileContent;
         })
         .catch(error => {
             console.error('Fetch error:', error);
     });
 }
 
-let content;
 if ( q ){
-    content = getData( q );
+    getData( q );
 }else{
-    content = getData( 'frontpage' );
+    getData( 'frontpage' );
 }
-
-const myDiv = document.getElementById('content');
-myDiv.innerHTML = content;
