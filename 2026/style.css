@@ -20,6 +20,10 @@
   --border-radius-sm: 10px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -32,6 +36,43 @@ body {
   color: var(--text-dark);
   line-height: 1.7;
   min-height: 100vh;
+}
+
+/* ===== Loading pulse for images ===== */
+.img-card {
+  position: relative;
+  background: #e8e5ff;
+}
+
+.img-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: 0;
+  animation: imgLoaded 0.5s ease 0.3s forwards;
+}
+
+@keyframes imgLoaded {
+  to { opacity: 1; }
+}
+
+.img-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #e8e5ff 25%, #f0eeff 50%, #e8e5ff 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.img-card img[src] {
+  position: relative;
+  z-index: 1;
 }
 
 /* ===== Hero Section ===== */
@@ -635,6 +676,65 @@ a[target="_blank"]::after {
 .song-list a[target="_blank"]::after,
 .link-list a[target="_blank"]::after,
 .back-btn[target="_blank"]::after,
-.year-nav a[target="_blank"]::after {
+.year-nav a[target="_blank"]::after,
+a[target="_blank"][href$=".pdf"]::after,
+a[target="_blank"][href*="drive.google.com"]::after {
   display: none;
+}
+
+/* ===== Print Styles ===== */
+@media print {
+  .hero {
+    padding: 1rem;
+    background: #6C5CE7 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  .wave-divider { display: none; }
+  .back-btn { display: none; }
+  .back-to-top { display: none !important; }
+  .year-nav { display: none; }
+  
+  .video-wrapper {
+    display: none;
+  }
+  
+  .song-card {
+    box-shadow: none;
+    border: 1px solid #ddd;
+    break-inside: avoid;
+  }
+  
+  .song-lyrics {
+    font-size: 11pt;
+    line-height: 1.8;
+  }
+  
+  .img-card {
+    box-shadow: none;
+    border: 1px solid #ddd;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  
+  .img-card::before { display: none; }
+  .img-card img { opacity: 1 !important; }
+  
+  .footer {
+    padding: 1rem;
+  }
+  
+  .container {
+    max-width: 100%;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  a::after {
+    display: none !important;
+  }
 }
