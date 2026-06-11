@@ -501,6 +501,13 @@ body {
   margin-top: auto;
 }
 
+.footer .last-updated {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  opacity: 0.6;
+  margin-top: 0.3rem;
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 576px) {
   .hero {
