@@ -899,114 +899,131 @@ a[target="_blank"][href*="drive.google.com"]::after {
   transform: translateY(-2px);
 }
 
-/* ===== Intro Page ===== */
-.intro-section {
+/* ===== Intro Page — Outline ===== */
+
+/* Reset list styles inside outline */
+.outline, .outline ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Level 1: 壹貳參肆 */
+.outline > li {
+  counter-increment: l1;
+  margin-bottom: 1.5rem;
+  padding: 1.2rem 1.5rem;
   background: var(--white);
   border-radius: var(--border-radius);
   box-shadow: var(--card-shadow);
-  padding: 2rem;
-  margin-bottom: 1.5rem;
   border-left: 5px solid var(--primary);
   transition: all 0.3s ease;
+  position: relative;
 }
 
-.intro-section:hover {
+.outline > li:hover {
   box-shadow: var(--card-hover-shadow);
-  transform: translateY(-2px);
 }
 
-.intro-section:nth-child(2) {
-  border-left-color: #00b894;
-}
-
-.intro-section:nth-child(3) {
-  border-left-color: #e17055;
-}
-
-.intro-section:nth-child(4) {
-  border-left-color: #0984e3;
-}
-
-.intro-section .section-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: var(--bg-gradient);
-  border-radius: 50%;
+.outline > li::before {
+  content: counter(l1, cjk-ideographic);
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 900;
   color: var(--white);
-  font-size: 1rem;
-  font-weight: 700;
+  background: var(--bg-gradient);
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  border-radius: 50%;
+  margin-right: 0.7rem;
   flex-shrink: 0;
+  vertical-align: middle;
 }
 
-.intro-section:nth-child(2) .section-badge {
-  background: linear-gradient(135deg, #00b894, #55efc4);
-}
+/* Color alternation for L1 items */
+.outline > li:nth-child(1) { border-left-color: #6C5CE7; }
+.outline > li:nth-child(2) { border-left-color: #00b894; }
+.outline > li:nth-child(3) { border-left-color: #e17055; }
+.outline > li:nth-child(4) { border-left-color: #0984e3; }
 
-.intro-section:nth-child(3) .section-badge {
-  background: linear-gradient(135deg, #e17055, #fab1a0);
-}
+.outline > li:nth-child(1)::before { background: linear-gradient(135deg, #6C5CE7, #a29bfe); }
+.outline > li:nth-child(2)::before { background: linear-gradient(135deg, #00b894, #55efc4); }
+.outline > li:nth-child(3)::before { background: linear-gradient(135deg, #e17055, #fab1a0); }
+.outline > li:nth-child(4)::before { background: linear-gradient(135deg, #0984e3, #74b9ff); }
 
-.intro-section:nth-child(4) .section-badge {
-  background: linear-gradient(135deg, #0984e3, #74b9ff);
-}
-
-.intro-section .section-header {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.intro-section .section-title-text {
-  font-size: 1.1rem;
+.outline > li > .l1-title {
+  display: inline;
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--primary-dark);
-  line-height: 1.6;
-  padding-top: 0.3rem;
+  line-height: 1.7;
 }
 
-.intro-section:nth-child(2) .section-title-text {
-  color: #00856a;
-}
+.outline > li:nth-child(2) > .l1-title { color: #00856a; }
+.outline > li:nth-child(3) > .l1-title { color: #c0392b; }
+.outline > li:nth-child(4) > .l1-title { color: #0765b3; }
 
-.intro-section:nth-child(3) .section-title-text {
-  color: #c0392b;
-}
-
-.intro-section:nth-child(4) .section-title-text {
-  color: #0765b3;
-}
-
-.intro-section .section-body {
-  padding-left: 3.5rem;
-}
-
-.intro-section .section-body p {
-  margin-bottom: 0.6rem;
-  font-size: 1rem;
-  line-height: 2;
-  color: var(--text-dark);
-}
-
-.intro-section .section-body p:last-child {
-  margin-bottom: 0;
-}
-
-.intro-section .section-body .indent-1 {
+/* Level 2: 一二三四 */
+.outline ol {
+  margin-top: 0.8rem;
   padding-left: 1.5rem;
 }
 
-.intro-section .section-body .indent-2 {
-  padding-left: 3rem;
+.outline ol > li {
+  counter-increment: l2;
+  margin-bottom: 0.4rem;
+  padding-left: 1.8rem;
+  position: relative;
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: var(--text-dark);
 }
 
-.intro-section .section-body .sub-head {
+.outline ol > li::before {
+  content: counter(l2, cjk-ideographic);
+  position: absolute;
+  left: 0;
   font-weight: 600;
-  color: var(--text-dark);
-  margin-top: 0.5rem;
+  color: var(--primary);
+}
+
+.outline > li:nth-child(2) ol > li::before { color: #00b894; }
+.outline > li:nth-child(3) ol > li::before { color: #e17055; }
+.outline > li:nth-child(4) ol > li::before { color: #0984e3; }
+
+/* Level 3: 1 2 3 */
+.outline ol ol {
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+  padding-left: 0.5rem;
+}
+
+.outline ol ol > li {
+  counter-increment: l3;
+  padding-left: 2rem;
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+.outline ol ol > li::before {
+  content: counter(l3) ".";
+  position: absolute;
+  left: 0.5rem;
+  font-weight: 500;
+  color: var(--text-light);
+}
+
+/* Last item spacing */
+.outline ol > li:last-child,
+.outline ol ol > li:last-child {
+  margin-bottom: 0;
+}
+
+/* No extra card needed when using outline */
+.intro-card .card-content {
+  padding: 0;
 }
 
 /* ===== Print Styles ===== */
