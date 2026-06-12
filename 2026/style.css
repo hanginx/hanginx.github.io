@@ -860,6 +860,71 @@ a[target="_blank"][href*="drive.google.com"]::after {
   display: none;
 }
 
+/* ===== Time Notice ===== */
+.time-notice {
+  display: inline-block;
+  margin-left: 1rem;
+  color: #d32f2f;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* ===== Section Nav (anchor links) ===== */
+.section-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.section-nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  background: var(--white);
+  border-radius: 50px;
+  text-decoration: none;
+  color: var(--primary-dark);
+  font-weight: 500;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  transition: all 0.25s ease;
+  border: 2px solid transparent;
+}
+
+.section-nav a:hover {
+  border-color: var(--primary-light);
+  box-shadow: var(--card-shadow);
+  transform: translateY(-2px);
+}
+
+/* ===== Intro Page Text ===== */
+.intro-text {
+  font-size: 1.05rem;
+  line-height: 2.2;
+  color: var(--text-dark);
+}
+
+.intro-text p {
+  margin-bottom: 0.8rem;
+}
+
+.intro-text .section-head {
+  font-weight: 700;
+  color: var(--primary-dark);
+  font-size: 1.1rem;
+  margin-top: 1.2rem;
+}
+
+.intro-text .indent-1 {
+  padding-left: 2rem;
+}
+
+.intro-text .indent-2 {
+  padding-left: 3rem;
+}
+
 /* ===== Print Styles ===== */
 @media print {
   .hero {
@@ -913,5 +978,35 @@ a[target="_blank"][href*="drive.google.com"]::after {
   
   a::after {
     display: none !important;
+  }
+  
+  /* Curriculum table print */
+  .curriculum-table {
+    box-shadow: none;
+    border: 1px solid #ddd;
+    font-size: 9pt;
+    min-width: auto;
+  }
+  
+  .curriculum-table thead {
+    background: #6C5CE7 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  .curriculum-table .section-row td:first-child {
+    background: #f0eeff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  .table-responsive {
+    overflow: visible;
+    margin-bottom: 1rem;
+  }
+  
+  .time-notice,
+  .section-nav {
+    display: none;
   }
 }
