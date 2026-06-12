@@ -616,6 +616,198 @@ body {
 .delay-7 { animation-delay: 0.7s; }
 .delay-8 { animation-delay: 0.8s; }
 
+/* ===== Curriculum Table ===== */
+.table-responsive {
+  overflow-x: auto;
+  margin-bottom: 2rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-responsive::-webkit-scrollbar {
+  height: 6px;
+}
+
+.table-responsive::-webkit-scrollbar-track {
+  background: #e8e5ff;
+  border-radius: 3px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+  background: var(--primary-light);
+  border-radius: 3px;
+}
+
+.curriculum-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  font-size: 0.9rem;
+  min-width: 650px;
+}
+
+.curriculum-table thead {
+  background: var(--bg-gradient);
+  color: var(--white);
+}
+
+.curriculum-table th {
+  padding: 1rem;
+  font-weight: 700;
+  text-align: left;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+}
+
+.curriculum-table td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid #f0eeff;
+  vertical-align: top;
+  line-height: 1.6;
+}
+
+.curriculum-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.curriculum-table tbody tr:hover {
+  background: #f8f7ff;
+}
+
+.curriculum-table .section-row td:first-child {
+  background: linear-gradient(135deg, #f8f9ff, #e8e5ff);
+  font-weight: 600;
+  color: var(--primary-dark);
+  vertical-align: middle;
+  text-align: center;
+  border-right: 3px solid var(--primary-light);
+}
+
+.curriculum-table .section-row td:first-child small {
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: var(--text-light);
+  display: block;
+  margin-top: 0.2rem;
+}
+
+.curriculum-table .time {
+  font-weight: 700;
+  color: var(--primary);
+  white-space: nowrap;
+  text-align: center;
+}
+
+.curriculum-table td:empty {
+  background: transparent;
+}
+
+@media (max-width: 768px) {
+  .curriculum-table {
+    font-size: 0.8rem;
+    min-width: 550px;
+  }
+
+  .curriculum-table th,
+  .curriculum-table td {
+    padding: 0.65rem 0.7rem;
+  }
+}
+
+/* ===== Group Table (操練分組) ===== */
+.group-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  font-size: 0.95rem;
+}
+
+.group-table thead {
+  background: var(--bg-gradient);
+  color: var(--white);
+}
+
+.group-table th {
+  padding: 1rem;
+  font-weight: 700;
+  text-align: center;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+}
+
+.group-table td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid #f0eeff;
+  vertical-align: middle;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.group-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.group-table tbody tr:hover {
+  background: #f8f7ff;
+}
+
+.group-table .district-name {
+  font-weight: 700;
+  color: var(--primary-dark);
+  font-size: 1rem;
+  text-align: left;
+  padding-left: 1.2rem;
+}
+
+.group-table .family-count {
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+.group-table .group-cell {
+  font-weight: 600;
+  border-radius: 6px;
+  padding: 0.5rem 0.8rem;
+  letter-spacing: 0.5px;
+}
+
+/* Group color coding */
+.group-table .g1 { color: #6C5CE7; background: #f0eeff; }
+.group-table .g2 { color: #00b894; background: #e6f9f2; }
+.group-table .g3 { color: #e17055; background: #fdf0ed; }
+.group-table .g4 { color: #0984e3; background: #e8f4fd; }
+.group-table .g5 { color: #d63031; background: #fbeaea; }
+.group-table .g6 { color: #6c5ce7; background: #f0eeff; }
+.group-table .g7 { color: #00b894; background: #e6f9f2; }
+.group-table .g8 { color: #e17055; background: #fdf0ed; }
+.group-table .g9 { color: #0984e3; background: #e8f4fd; }
+
+@media (max-width: 768px) {
+  .group-table {
+    font-size: 0.82rem;
+  }
+
+  .group-table th,
+  .group-table td {
+    padding: 0.6rem 0.5rem;
+  }
+
+  .group-table .district-name {
+    font-size: 0.85rem;
+    padding-left: 0.6rem;
+  }
+
+  .group-table .group-cell {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.5rem;
+  }
+}
+
 /* ===== Back to Top Button ===== */
 .back-to-top {
   position: fixed;
